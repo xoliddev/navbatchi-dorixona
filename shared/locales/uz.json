@@ -188,6 +188,7 @@
   "app.stock": "Zaxira va narx",
   "app.left": "{n} daqiqa qoldi",
   "app.given": "Berildi: {med} × {qty}",
+  "app.in_res": "bronda {n}",
   "map.attrib": "© <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a> mualliflari",
   "demo.badge": "Demo — hammasi brauzeringizda ishlaydi",
   "demo.title": "Qaysi dorixonada bor, qancha turadi, hozir ochiqmi?",

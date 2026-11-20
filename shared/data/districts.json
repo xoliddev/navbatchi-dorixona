@@ -1,0 +1,14 @@
+[
+  {"id": "yunusobod", "name": {"uz": "Yunusobod", "ru": "Юнусабад"}, "lat": 41.3650, "lon": 69.2850},
+  {"id": "chilonzor", "name": {"uz": "Chilonzor", "ru": "Чиланзар"}, "lat": 41.2750, "lon": 69.2050},
+  {"id": "mirzo-ulugbek", "name": {"uz": "Mirzo Ulug'bek", "ru": "Мирзо-Улугбек"}, "lat": 41.3380, "lon": 69.3350},
+  {"id": "yakkasaroy", "name": {"uz": "Yakkasaroy", "ru": "Яккасарай"}, "lat": 41.2850, "lon": 69.2550},
+  {"id": "shayxontohur", "name": {"uz": "Shayxontohur", "ru": "Шайхантахур"}, "lat": 41.3200, "lon": 69.2300},
+  {"id": "olmazor", "name": {"uz": "Olmazor", "ru": "Алмазар"}, "lat": 41.3500, "lon": 69.2150},
+  {"id": "mirobod", "name": {"uz": "Mirobod", "ru": "Мирабад"}, "lat": 41.2950, "lon": 69.2800},
+  {"id": "sergeli", "name": {"uz": "Sergeli", "ru": "Сергели"}, "lat": 41.2250, "lon": 69.2200},
+  {"id": "uchtepa", "name": {"uz": "Uchtepa", "ru": "Учтепа"}, "lat": 41.2950, "lon": 69.1750},
+  {"id": "yashnobod", "name": {"uz": "Yashnobod", "ru": "Яшнабад"}, "lat": 41.2900, "lon": 69.3400},
+  {"id": "bektemir", "name": {"uz": "Bektemir", "ru": "Бектемир"}, "lat": 41.2100, "lon": 69.3350},
+  {"id": "yangihayot", "name": {"uz": "Yangihayot", "ru": "Янгихаёт"}, "lat": 41.2050, "lon": 69.2450}
+]

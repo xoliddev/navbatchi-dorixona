@@ -43,7 +43,7 @@ export async function renderPharm(ctx, body) {
     } }, ctx.T('app.save'));
     return h('div', { class: `nd-stock${s.qty - s.reserved <= 0 ? ' out' : ''}`, 'data-testid': `stock-${s.med_id}` },
       h('div', { class: 'nd-stock-name' }, h('b', {}, ctx.label(s.med_id)),
-        h('span', { class: 'nd-muted' }, `${price(s.price)} · ${s.qty}${s.reserved ? ` (${s.reserved} bron)` : ''}`)),
+        h('span', { class: 'nd-muted' }, `${price(s.price)} · ${s.qty}${s.reserved ? ` (${ctx.T('app.in_res', { n: s.reserved })})` : ''}`)),
       p, q, save);
   });
 

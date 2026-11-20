@@ -188,6 +188,7 @@
   "app.stock": "Остатки и цены",
   "app.left": "осталось {n} мин.",
   "app.given": "Выдано: {med} × {qty}",
+  "app.in_res": "в брони {n}",
   "map.attrib": "© участники <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">OpenStreetMap</a>",
   "demo.badge": "Демо — всё работает в вашем браузере",
   "demo.title": "В какой аптеке есть, сколько стоит, открыта ли сейчас?",

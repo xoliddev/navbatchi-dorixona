@@ -16,7 +16,8 @@ from .common import LANGS, Refused, clean_text, norm_lang
 from .core import alerts as alert_rules
 from .core import catalog as search_rules
 from .core import reserve as rules
-from .core.geo import nearest_district, valid_point
+from .core.geo import haversine_m, nearest_district, valid_point
+from .core.hours import status
 from .core.money import PriceError, parse_price
 from .core.rank import rank
 from .data import Catalog
@@ -112,6 +113,15 @@ class Service(StaffMixin):
             prices[aid] = min((i["price"] for i in items), default=None)
         mins = {k: v for k, v in prices.items() if v is not None}
         return {**res, "med": med, "analogs": search_rules.cheaper_analogs(self.catalog.meds, med_id, mins), "now": now}
+
+    async def offer_at(self, med_id: str, pid: int, lat: float, lon: float) -> dict:
+        """One pharmacy's offer for the card screen (also when it is out of stock or closed)."""
+        self.med(med_id)
+        row = next((r for r in await self.raw_offers(med_id) if r["pharmacy_id"] == pid), None)
+        if row is None or not valid_point(lat, lon):
+            raise Refused("not_found")
+        return {**row, "dist": haversine_m(float(lat), float(lon), row["lat"], row["lon"]),
+                "status": status(row["hours"], row["off"], self.now())}
 
     # ── reservations ──
     async def reserve(self, uid: int, pid: int, med_id: str, qty: int) -> dict:

@@ -1,15 +1,15 @@
 // Small DOM helpers for the Mini App. No framework, no build step.
 export { makeT } from '../shared/i18n.js';
 
-/** Load both locale files and the catalog (the bot reads the very same JSON). */
-export async function loadShared(base = new URL('../shared/', import.meta.url)) {
+/** Load both locale files and the catalog (the bot reads the very same JSON). The demo also needs the pharmacies. */
+export async function loadShared(base = new URL('../shared/', import.meta.url), withPharmacies = false) {
   const get = (p) => fetch(new URL(p, base)).then((r) => {
     if (!r.ok) throw new Error(`load ${p}`);
     return r.json();
   });
-  const [uz, ru, meds, districts] = await Promise.all([get('locales/uz.json'), get('locales/ru.json'),
-    get('data/meds.json'), get('data/districts.json')]);
-  return { catalogs: { uz, ru }, meds, districts };
+  const [uz, ru, meds, districts, pharmacies] = await Promise.all([get('locales/uz.json'), get('locales/ru.json'),
+    get('data/meds.json'), get('data/districts.json'), withPharmacies ? get('data/pharmacies.json') : null]);
+  return { catalogs: { uz, ru }, meds, districts, ...(pharmacies ? { pharmacies } : {}) };
 }
 
 /** h('div', {class: 'x', onclick: fn}, child, 'text') — children may be nodes, strings or arrays. */

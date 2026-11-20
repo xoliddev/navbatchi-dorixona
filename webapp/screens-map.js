@@ -119,15 +119,15 @@ export async function renderMap(ctx, body) {
       'data-testid': 'analog', onclick: () => pick(a.id) }, h('span', { class: 'nd-tag is-cheapest' }, ctx.T('btn.analog',
       { name: ctx.label(a.id) })), h('span', { html: ctx.T('offers.analog', { name: ctx.label(a.id), price: price(a.price) }) })));
     const empty = res.items.length ? null : h('p', { class: 'nd-hint' }, ctx.T(st.open ? 'offers.none_open' : 'offers.none'));
-    list.replaceChildren(h('p', { class: 'nd-count' }, ctx.T('app.found', { n: res.items.length })), ...analogs, empty,
-      ...cards, h('p', { class: 'nd-disc', html: ctx.T('disclaimer') }));
+    list.replaceChildren(...[h('p', { class: 'nd-count' }, ctx.T('app.found', { n: res.items.length })), ...analogs, empty,
+      ...cards, h('p', { class: 'nd-disc', html: ctx.T('disclaimer') })].filter(Boolean));
   }
 
   const controls = h('div', { class: 'nd-controls' },
     h('label', { class: 'nd-slider' }, h('span', {}, ctx.T('btn.near')), slider, h('span', {}, ctx.T('btn.cheap'))),
     h('label', { class: 'nd-switch' }, night, h('i', { 'aria-hidden': 'true' }), h('span', {}, ctx.T('app.night'))));
-  body.replaceChildren(h('div', { class: 'nd-searchbox' }, input, suggest), ctx.me.location ? null : locationPanel(ctx),
-    controls, top, el, list, ctx.me.location ? locationPanel(ctx) : null);
+  body.replaceChildren(...[h('div', { class: 'nd-searchbox' }, input, suggest), ctx.me.location ? null : locationPanel(ctx),
+    controls, top, el, list, ctx.me.location ? locationPanel(ctx) : null].filter(Boolean));
   suggest.hidden = true;
   requestAnimationFrame(() => view.invalidate());
   view.invalidate();
